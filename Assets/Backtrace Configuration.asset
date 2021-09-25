@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e908b13f7467f4185f3f45d43568c4, type: 3}
   m_Name: Backtrace Configuration
   m_EditorClassIdentifier: 
-  ServerUrl: 
+  ServerUrl: https://submit.backtrace.io/forsync/31b8cab865d0e6160945cca71d6cdc0e246eab7c502865cab7ea73072b5b5e25/json
   Token: 
   ReportPerMin: 50
   HandleUnhandledExceptions: 1
