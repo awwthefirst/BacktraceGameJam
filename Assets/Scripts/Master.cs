@@ -15,12 +15,22 @@ public class Master : MonoBehaviour
     public static bool requestFulfilled = false;
     public static string currentTask;
     [SerializeField] private GameObject shareRecipeText;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject winScreen;
 
     private void OnMouseDown()
     {
         float distance = Vector2.Distance(this.player.transform.position, this.transform.position);
         if (distance <= 1)
         {
+            this.shareRecipeText.SetActive(false);
+            audioSource.Play();
+            if (dialogueIndex == 15)
+            {
+                this.winScreen.SetActive(true);
+                Time.timeScale = 0F;
+                return;
+            }
             if (requestedItem.Length == 0 || requestFulfilled)
             {
                 DisplayDialogue(dialogueIndex);

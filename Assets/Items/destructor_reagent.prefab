@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: destructor reagent
   rb: {fileID: 4934409484764621681}
+  successSound: {fileID: 0}
+  errorSound: {fileID: 8300000, guid: b8dacc4ebf5db63409e84ca1106948c3, type: 3}
+  AudioSource: {fileID: 4176695837413614995}
+  destructionSound: {fileID: 8300000, guid: 2c093ef7a1ed04343a6e394a1d997083, type: 3}
 --- !u!1001 &345253003937873144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +128,12 @@ GameObject:
 --- !u!50 &4934409484764621681 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4661259214980437897, guid: 8edaac281909a724397d27b23118f369,
+    type: 3}
+  m_PrefabInstance: {fileID: 345253003937873144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4176695837413614995 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -4810953280802891413, guid: 8edaac281909a724397d27b23118f369,
     type: 3}
   m_PrefabInstance: {fileID: 345253003937873144}
   m_PrefabAsset: {fileID: 0}

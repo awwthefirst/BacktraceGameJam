@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 1;
     private static Vector2 position;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -22,6 +23,11 @@ public class Player : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        this.animator.SetFloat("x", movement.x);
+        this.animator.SetFloat("y", movement.y);
+
+        this.animator.SetFloat("speed", movement.magnitude);
 
         movement.Normalize();
 

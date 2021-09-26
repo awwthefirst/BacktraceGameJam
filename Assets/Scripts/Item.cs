@@ -10,7 +10,9 @@ public class Item : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     protected Combinations combinations;
     private bool destroyed = false;
-    private TextMeshProUGUI nameText;
+    [HideInInspector] public TextMeshProUGUI nameText;
+    [SerializeField] protected AudioClip successSound, errorSound;
+    public AudioSource AudioSource;
 
     private void Start()
     {
@@ -39,8 +41,16 @@ public class Item : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(this.gameObject);
-                    Instantiate(result, this.transform.position, Quaternion.identity);
+                    Item resultItem = Instantiate(result, this.transform.position, Quaternion.identity).GetComponent<Item>();
                     this.destroyed = true;
+
+                    resultItem.AudioSource.clip = this.successSound;
+                    resultItem.AudioSource.Play();
+                    resultItem.nameText = this.nameText;
+                } else
+                {
+                    this.AudioSource.clip = this.errorSound;
+                    this.AudioSource.Play();
                 }
             }
         }
@@ -54,7 +64,9 @@ public class Item : MonoBehaviour
 
     private void OnMouseOver()
     {
-        this.nameText.text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.ItemName);
-        this.transform.position = this.transform.position;
+        if (this.nameText != null)
+        {
+            this.nameText.text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.ItemName);
+        }
     }
 }

@@ -32,14 +32,24 @@ public class AlchemyTableScene : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            this.Close();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.ResetItems();
         }
     }
 
     public void ResetItems()
     {
         SceneManager.LoadScene("AlchemyScene");
+    }
+
+    public void Close()
+    {
+        SceneManager.LoadScene(0);
     }
 }
